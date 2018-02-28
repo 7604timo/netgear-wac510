@@ -1,0 +1,258 @@
+(IPQ40xx) # bootm 0x84000000
+## Booting kernel from FIT Image at 84000000 ...
+   Using 'config@1' configuration
+   Trying 'kernel@1' kernel subimage
+     Description:  ARM OpenWrt Linux-4.9.77
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x840000e4
+     Data Size:    5919456 Bytes = 5.6 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x80208000
+     Entry Point:  0x80208000
+     Hash algo:    crc32
+     Hash value:   3836ed01
+     Hash algo:    sha1
+     Hash value:   f95b6461129d17350306ab3e7178ed19d3132f46
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Flattened Device Tree from FIT Image at 84000000
+   Using 'config@1' configuration
+   Trying 'fdt@1' FDT blob subimage
+     Description:  ARM OpenWrt qcom_ap-dk01.1-c1 device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x845a5500
+     Data Size:    14020 Bytes = 13.7 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   aa144448
+     Hash algo:    sha1
+     Hash value:   153f19a853a41c08c842792bfeb2bcc9b99e83db
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Booting using the fdt blob at 0x845a5500
+   Uncompressing Kernel Image ... OK
+   Loading Device Tree to 86ff9000, end 86fff6c3 ... OK
+ipq: fdt fixup unable to find compatible node
+Using machid 0x8010100 from environment
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.9.77 (tim@ITDept002) (gcc version 5.5.0 (OpenWrt GCC 5.5.0 r5994-fd30187) ) #0 SMP Fri Feb 2 13:41:35 2018
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt:Machine model: Qualcomm Technologies, Inc. IPQ40xx/AP-DK01.1-C1
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] percpu: Embedded 13 pages/cpu @cfdb9000 s20940 r8192 d24116 u53248
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 60928
+[    0.000000] Kernel command line: init=/bin/sh
+[    0.000000] Bootloader command line not present
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 230732K/245760K available (3853K kernel code, 246K rwdata, 1236K rodata, 6876K init, 242K bss, 15028K reserved, 0K cma-reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff800000   ( 752 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0208000 - 0xc05cb8d8   (3855 kB)
+[    0.000000]       .init : 0xc0721000 - 0xc0dd8000   (6876 kB)
+[    0.000000]       .data : 0xc0dd8000 - 0xc0e15980   ( 247 kB)
+[    0.000000]        .bss : 0xc0e17000 - 0xc0e53868   ( 243 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] arm_arch_timer: Architected cp15 timer(s) running at 48.00MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xb11fd3bfb, max_idle_ns: 440795203732 ns
+[    0.000007] sched_clock: 56 bits at 48MHz, resolution 20ns, wraps every 4398046511096ns
+[    0.000022] Switching to timer-based delay loop, resolution 20ns
+[    0.000213] Calibrating delay loop (skipped), value calculated using timer frequency.. 96.00 BogoMIPS (lpj=480000)
+[    0.000229] pid_max: default: 32768 minimum: 301
+[    0.000329] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000343] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000969] CPU: Testing write buffer coherency: ok
+[    0.001286] Setting up static identity map for 0x80208280 - 0x802082d8
+[    0.005309] Brought up 4 CPUs
+[    0.005330] SMP: Total of 4 processors activated (384.00 BogoMIPS).
+[    0.005338] CPU: All CPU(s) started in SVC mode.
+[    0.009718] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.009878] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.009977] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.010138] pinctrl core: initialized pinctrl subsystem
+[    0.011347] NET: Registered protocol family 16
+[    0.011609] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.040014] cpuidle: using governor ladder
+[    0.070043] cpuidle: using governor menu
+[    0.110956] msm_bus_fabric_init_driver
+[    0.111860] usbcore: registered new interface driver usbfs
+[    0.111948] usbcore: registered new interface driver hub
+[    0.112032] usbcore: registered new device driver usb
+[    0.112086] pps_core: LinuxPPS API ver. 1 registered
+[    0.112095] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.112122] PTP clock support registered
+[    0.113616] clocksource: Switched to clocksource arch_sys_counter
+[    0.114606] NET: Registered protocol family 2
+[    0.115230] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.115277] TCP bind hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.115326] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.115385] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.115416] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.115599] NET: Registered protocol family 1
+[    0.190889] No memory allocated for crashlog
+[    0.191178] workingset: timestamp_bits=30 max_order=16 bucket_order=0
+[    0.197189] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.197203] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.202163] io scheduler noop registered
+[    0.202180] io scheduler deadline registered (default)
+[    0.206091] tcsr 194b000.tcsr: setting usb hs phy mode select = e700e7
+[    0.206149] tcsr 1953000.ess_tcsr: setting ess interface select = 0
+[    0.206199] tcsr 1949000.tcsr: setting wifi_glb_cfg = 41000000
+[    0.206250] tcsr 1957000.tcsr: setting wifi_noc_memtype_m0_m2 = 2222222
+[    0.206389] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    0.207112] msm_serial 78af000.serial: msm_serial: detected port #0
+[    0.207157] msm_serial 78af000.serial: uartclk = 1843200
+[    0.207204] 78af000.serial: ttyMSM0 at MMIO 0x78af000 (irq = 125, base_baud = 115200) is a MSM
+[    0.207230] msm_serial: console setup on port #0
+[    0.694235] console [ttyMSM0] enabled
+[    0.699265] msm_serial: driver initialized
+[    0.709889] loop: module loaded
+[    0.710914] spi_qup 78b5000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64
+[    0.712662] m25p80 spi0.0: found s25fl016k, expected mx25l25635f
+[    0.724509] random: fast init done
+[    0.728099] m25p80 spi0.0: s25fl016k (2048 Kbytes)
+[    0.728392] 11 ofpart partitions found on MTD device spi0.0
+[    0.733106] Creating 11 MTD partitions on "spi0.0":
+[    0.738602] 0x000000000000-0x000000040000 : "SBL1"
+[    0.744414] 0x000000040000-0x000000060000 : "MIBIB"
+[    0.749159] 0x000000060000-0x0000000c0000 : "QSEE"
+[    0.753966] 0x0000000c0000-0x0000000d0000 : "CDT"
+[    0.758819] 0x0000000d0000-0x0000000e0000 : "DDRPARAMS"
+[    0.763588] 0x0000000e0000-0x0000000f0000 : "APPSBLENV"
+[    0.768654] 0x0000000f0000-0x000000170000 : "APPSBL"
+[    0.773921] 0x000000170000-0x000000180000 : "ART"
+[    0.779117] 0x000000180000-0x000000580000 : "kernel"
+[    0.782760] mtd: partition "kernel" extends beyond the end of device "spi0.0" -- size truncated to 0x80000
+[    0.788738] 0x000000580000-0x000001b80000 : "rootfs"
+[    0.797287] mtd: partition "rootfs" is out of reach -- disabled
+[    0.803248] mtd: device 9 (rootfs) set to be root filesystem
+[    0.808051] mtdsplit: error occured while reading from "rootfs"
+[    0.813960] 0x000000180000-0x000001b80000 : "firmware"
+[    0.819563] mtd: partition "firmware" extends beyond the end of device "spi0.0" -- size truncated to 0x80000
+[    0.826290] libphy: ipq40xx_mdio: probed
+[    0.911483] ESS reset ok!
+[    0.944476] ESS reset ok!
+[    1.374119] libphy: Fixed MDIO Bus: probed
+[    1.374148] libphy: mdio_driver_register: qca8k
+[    1.474338] i2c /dev entries driver
+[    1.476145] cpufreq: cpufreq_online: CPU0: Running at unlisted freq: 666000 KHz
+[    1.476696] cpufreq: cpufreq_online: CPU0: Unlisted initial frequency changed to: 716800 KHz
+[    1.484478] sdhci: Secure Digital Host Controller Interface driver
+[    1.492605] sdhci: Copyright(c) Pierre Ossman
+[    1.498983] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.538567] NET: Registered protocol family 10
+[    1.556494] NET: Registered protocol family 17
+[    1.558646] 8021q: 802.1Q VLAN Support v1.8
+[    1.560563] Registering SWP/SWPB emulation handler
+[    1.616875] hctosys: unable to open rtc device (rtc0)
+[    1.762415] Freeing unused kernel memory: 6876K
+[    1.762447] This architecture does not have kernel memory protection.
+[    1.776217] init: Console is alive
+[    1.776433] init: - watchdog -
+[    1.787426] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    1.790473] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    1.796870] SCSI subsystem initialized
+[    1.808912] ehci-platform: EHCI generic platform driver
+[    1.812128] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[    1.813709] ohci-platform: OHCI generic platform driver
+[    2.105645] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    2.105804] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[    2.110586] xhci-hcd xhci-hcd.0.auto: hcc params 0x0228f665 hci version 0x100 quirks 0x02010010
+[    2.117903] xhci-hcd xhci-hcd.0.auto: irq 192, io mem 0x08a00000
+[    2.128684] hub 1-0:1.0: USB hub found
+[    2.132681] hub 1-0:1.0: 1 port detected
+[    2.137176] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[    2.140233] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[    2.145961] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    2.155289] hub 2-0:1.0: USB hub found
+[    2.161493] hub 2-0:1.0: 1 port detected
+[    2.166240] xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+[    2.169083] xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 3
+[    2.174890] xhci-hcd xhci-hcd.1.auto: hcc params 0x0220f665 hci version 0x100 quirks 0x02010010
+[    2.182018] xhci-hcd xhci-hcd.1.auto: irq 193, io mem 0x06000000
+[    2.192958] hub 3-0:1.0: USB hub found
+[    2.196992] hub 3-0:1.0: 1 port detected
+[    2.201341] xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+[    2.204526] xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 4
+[    2.210095] usb usb4: We don't know the algorithms for LPM for this host, disabling LPM.
+[    2.219546] hub 4-0:1.0: USB hub found
+[    2.225788] hub 4-0:1.0: config failed, hub doesn't have any ports! (err -19)
+[    2.232958] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    2.244271] init: - preinit -
+/bin/board_detect: line 12: Unsupported: not found
+[    2.544522] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[    2.544677] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[    6.011358] procd: - early -
+[    6.011610] procd: - watchdog -
+[    6.694946] procd: - watchdog -
+[    6.697660] procd: - ubus -
+[    6.770267] procd: - init -
+Please press Enter to activate this console.
+[    7.081983] kmodloader: loading kernel modules from /etc/modules.d/*
+[    7.086192] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[    7.095773] Loading modules backported from Linux version wt-2017-11-01-0-gfe248fc2c180
+[    7.095815] Backport generated by backports.git v4.14-rc2-1-31-g86cf0e5d
+[    7.104717] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    7.115772] nf_conntrack version 0.5.0 (4096 buckets, 16384 max)
+[    7.148178] xt_time: kernel timezone is -0000
+[    7.180424] PPP generic driver version 2.4.2
+[    7.181631] NET: Registered protocol family 24
+[    7.385458] ath10k_ahb a000000.wifi: Direct firmware load for ath10k/pre-cal-ahb-a000000.wifi.bin failed with error -2
+[    7.385511] ath10k_ahb a000000.wifi: Falling back to user helper
+[    8.317570] random: crng init done
+[    8.969334] ath10k_ahb a000000.wifi: Direct firmware load for ath10k/QCA4019/hw1.0/firmware-6.bin failed with error -2
+[    8.969384] ath10k_ahb a000000.wifi: Falling back to user helper
+[    9.039723] firmware ath10k!QCA4019!hw1.0!firmware-6.bin: firmware_loading_store: map pages failed
+[    9.041846] ath10k_ahb a000000.wifi: qca4019 hw1.0 target 0x01000000 chip_id 0x003b00ff sub 0000:0000
+[    9.047685] ath10k_ahb a000000.wifi: kconfig debug 0 debugfs 1 tracing 0 dfs 1 testmode 1
+[    9.065677] ath10k_ahb a000000.wifi: firmware ver 10.4-3.4-00104 api 5 features no-p2p,mfp,peer-flow-ctrl,btcoex-param,allows-mesh-bcast,no-ps crc32 6c332c67
+[    9.107157] ath10k_ahb a000000.wifi: failed to fetch board data for bus=ahb,bmi-chip-id=0,bmi-board-id=31 from ath10k/QCA4019/hw1.0/board-2.bin
+[    9.107372] ath10k_ahb a000000.wifi: Direct firmware load for ath10k/QCA4019/hw1.0/board.bin failed with error -2
+[    9.118895] ath10k_ahb a000000.wifi: Falling back to user helper
+[    9.168916] firmware ath10k!QCA4019!hw1.0!board.bin: firmware_loading_store: map pages failed
+[    9.169145] ath10k_ahb a000000.wifi: failed to fetch board-2.bin or board.bin from ath10k/QCA4019/hw1.0
+[    9.176483] ath10k_ahb a000000.wifi: failed to fetch board file: -11
+[    9.185844] ath10k_ahb a000000.wifi: could not probe fw (-11)
+[    9.375466] ath10k_ahb a800000.wifi: Direct firmware load for ath10k/pre-cal-ahb-a800000.wifi.bin failed with error -2
+[    9.375518] ath10k_ahb a800000.wifi: Falling back to user helper
+[   10.434780] ath10k_ahb a800000.wifi: Direct firmware load for ath10k/QCA4019/hw1.0/firmware-6.bin failed with error -2
+[   10.434825] ath10k_ahb a800000.wifi: Falling back to user helper
+[   10.479837] firmware ath10k!QCA4019!hw1.0!firmware-6.bin: firmware_loading_store: map pages failed
+[   10.481391] ath10k_ahb a800000.wifi: qca4019 hw1.0 target 0x01000000 chip_id 0x003b00ff sub 0000:0000
+[   10.487762] ath10k_ahb a800000.wifi: kconfig debug 0 debugfs 1 tracing 0 dfs 1 testmode 1
+[   10.502949] ath10k_ahb a800000.wifi: firmware ver 10.4-3.4-00104 api 5 features no-p2p,mfp,peer-flow-ctrl,btcoex-param,allows-mesh-bcast,no-ps crc32 6c332c67
+[   10.547155] ath10k_ahb a800000.wifi: failed to fetch board data for bus=ahb,bmi-chip-id=0,bmi-board-id=31 from ath10k/QCA4019/hw1.0/board-2.bin
+[   10.547326] ath10k_ahb a800000.wifi: Direct firmware load for ath10k/QCA4019/hw1.0/board.bin failed with error -2
+[   10.558899] ath10k_ahb a800000.wifi: Falling back to user helper
+[   10.608918] firmware ath10k!QCA4019!hw1.0!board.bin: firmware_loading_store: map pages failed
+[   10.609167] ath10k_ahb a800000.wifi: failed to fetch board-2.bin or board.bin from ath10k/QCA4019/hw1.0
+[   10.616518] ath10k_ahb a800000.wifi: failed to fetch board file: -11
+[   10.625925] ath10k_ahb a800000.wifi: could not probe fw (-11)
+[   10.635240] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   15.145161] br-lan: port 1(eth0) entered blocking state
+[   15.145200] br-lan: port 1(eth0) entered disabled state
+[   15.149788] device eth0 entered promiscuous mode
+[   15.159957] IPv6: ADDRCONF(NETDEV_UP): br-lan: link is not ready
+[   15.180270] IPv6: ADDRCONF(NETDEV_UP): eth1: link is not ready
+[   15.181600] ess_edma c080000.edma: eth1: GMAC Link is up with phy_speed=1000
+[   15.185353] IPv6: ADDRCONF(NETDEV_CHANGE): eth1: link becomes ready
+[   16.163663] br-lan: port 1(eth0) entered blocking state
+[   16.163703] br-lan: port 1(eth0) entered forwarding state
+[   16.168495] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
+

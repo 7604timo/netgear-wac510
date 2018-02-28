@@ -1,0 +1,178 @@
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 3.14.43-V3.1.0.12 (root@cbuap-build2.netgear.com) (gcc version 4.8.3 (OpenWrt/Linaro GCC 4.8-2014.01 r43761) ) #1 SMP PREEMPT Tue Oct 24 09:12:07 PDT 2017
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] Machine model: Qualcomm Technologies, Inc. IPQ40xx/AP-DK01.1-C2
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] PERCPU: Embedded 7 pages/cpu @cfdca000 s8000 r8192 d12480 u32768
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 63744
+[    0.000000] Kernel command line: WAC510 init=/bin/sh ubi.mtd=rootfs_1 root=mtd:ubi_rootfs rootfstype=squashfs mtdparts=spi0.1:56m(rootfs),56m(rootfs_1),15m(var_config),768k(Oops_log) rootwait clk_ignore_unused
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 245336K/257024K available (5279K kernel code, 384K rwdata, 1640K rodata, 187K init, 605K bss, 11688K reserved, 0K highmem)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xfff00000 - 0xfffe0000   ( 896 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff000000   ( 744 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0208000 - 0xc09c1f18   (7912 kB)
+[    0.000000]       .init : 0xc0a00000 - 0xc0a2ef40   ( 188 kB)
+[    0.000000]       .data : 0xc0b00000 - 0xc0b6007c   ( 385 kB)
+[    0.000000]        .bss : 0xc0b6007c - 0xc0bf76e8   ( 606 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Preemptible hierarchical RCU implementation.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] Architected cp15 timer(s) running at 48.00MHz (virt).
+[    0.000010] sched_clock: 56 bits at 48MHz, resolution 20ns, wraps every 2863311552512ns
+[    0.000020] Switching to timer-based delay loop
+[    0.000214] Calibrating delay loop (skipped), value calculated using timer frequency.. 96.00 BogoMIPS (lpj=480000)
+[    0.000231] pid_max: default: 32768 minimum: 301
+[    0.000490] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000505] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.010637] CPU: Testing write buffer coherency: ok
+[    0.010998] CPU0: thread -1, cpu 0, socket 0, mpidr 80000000
+[    0.011074] Setting up static identity map for 0x8030ae60 - 0x8030aeb8
+[    0.090609] CPU1: Booted secondary processor
+[    0.090655] CPU1: thread -1, cpu 1, socket 0, mpidr 80000001
+[    0.110590] CPU2: Booted secondary processor
+[    0.110625] CPU2: thread -1, cpu 2, socket 0, mpidr 80000002
+[    0.130637] CPU3: Booted secondary processor
+[    0.130672] CPU3: thread -1, cpu 3, socket 0, mpidr 80000003
+[    0.130811] Brought up 4 CPUs
+[    0.130854] SMP: Total of 4 processors activated (384.00 BogoMIPS).
+[    0.130862] CPU: All CPU(s) started in SVC mode.
+[    0.141146] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.141529] pinctrl core: initialized pinctrl subsystem
+[    0.141988] regulator-dummy: no parameters
+[    0.142662] NET: Registered protocol family 16
+[    0.144253] DMA: preallocated 2048 KiB pool for atomic coherent allocations
+[    0.144810] cpuidle: using governor ladder
+[    0.144822] cpuidle: using governor menu
+[    0.152942] 
+[    0.152942] Version Rollback Feature Disabled
+[    0.156417] sps:sps is ready.
+[    0.161968] bio: create slab <bio-0> at 0
+[    0.164221] SCSI subsystem initialized
+[    0.164965] msm_bus_fabric_init_driver
+[    0.165133] msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+[    0.165152] msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+[    0.165171] msm_bus_device 580000.ad-hoc-bus: Failed to get bus clk for bus4096 ctx1
+[    0.165220] msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+[    0.165235] msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+[    0.165252] msm_bus_device 580000.ad-hoc-bus: Failed to get bus clk for bus1024 ctx1
+[    0.190798] Advanced Linux Sound Architecture Driver Initialized.
+[    0.191844] Switched to clocksource arch_sys_counter
+[    0.193617] NET: Registered protocol family 2
+[    0.194936] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.194986] TCP bind hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.195035] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.195092] TCP: reno registered
+[    0.195110] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.195145] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.195485] NET: Registered protocol family 1
+[    0.196166] Proc : LED control created !!
+[    0.196181] WAC5xx: saved_command_line : WAC510 init=/bin/sh ubi.mtd=rootfs_1 root=mtd:ubi_rootfs rootfstype=squashfs mtdparts=spi0.1:56m(rootfs),56m(rootfs_1),15m(var_config),768k(Oops_log) rootwait clk_ignore_unused
+[    0.196198] WAC5xx: Product is WAC510
+[    0.196212] WAC5xx: shipping mode
+[    0.196222] WAC5xx: platform_gpio_init: Not an WAC505 product !!!
+[    0.197160] WAC5xx: platform_gpio_init: shipping mode GPIO request for WAC510
+[    0.197172] WAC5xx: platform_gpio_init: sw reset mode GPIO request WAC510 !!!
+[    0.197431] WAC5xx: rst_button_init: SW reset GPIO->63
+[    0.197592] WAC5xx: rst_button_init success
+[    0.197603] WAC5xx: platform_gpio_init : GPIO platform init successful!!!
+[    0.198760] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.207951] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.207970] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.208945] msgmni has been set to 479
+[    0.210271] Key type asymmetric registered
+[    0.210286] Asymmetric key parser 'x509' registered
+[    0.210323] io scheduler noop registered
+[    0.210334] io scheduler deadline registered (default)
+[    0.211626] tcsr 194b000.tcsr: setting usb hs phy mode select = e700e7
+[    0.211694] tcsr 1953000.ess_tcsr: setting ess interface select = 0
+[    0.211766] tcsr 1949000.tcsr: setting wifi_glb_cfg = 41000000
+[    0.211827] tcsr 1957000.tcsr: setting wifi_noc_memtype_m0_m2 = 2222222
+[    0.212633] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    0.213749] msm_serial_hsl_probe: detected port #0 (ttyMSM0)
+[    0.213789] msm_serial_hsl_probe: Bus scaling is disabled
+[    0.213954] 78af000.serial: ttyMSM0 at MMIO 0x78af000 (irq = 139, base_baud = 115200) is a MSM
+[    0.214029] msm_hsl_console_setup: console setup on port #0
+[    0.833520] console [ttyMSM0] enabled
+[    0.837597] msm_serial_hsl_init: driver initialized
+[    0.842469] msm_serial_hs module loaded
+[    0.846163] qca_serial_hs module loaded
+[    0.850858] brd: module loaded
+[    0.854866] sps: BAM device 0x07884000 is not registered yet.
+[    0.859585] sps:BAM 0x07884000 is registered.
+[    0.865034] sps:BAM 0x07884000 (va:0xd0b40000) enabled: ver:0x19, number of pipes:12
+[    0.872197] m25p80 spi0.0: found s25fl016k, expected n25q128a11
+[    0.877825] m25p80 spi0.0: s25fl016k (2048 Kbytes)
+[    0.882662] 9 ofpart partitions found on MTD device spi0.0
+[    0.888058] Creating 9 MTD partitions on "spi0.0":
+[    0.892855] 0x000000000000-0x000000040000 : "0:SBL1"
+[    0.898916] 0x000000040000-0x000000060000 : "0:MIBIB"
+[    0.904029] 0x000000060000-0x0000000c0000 : "0:QSEE"
+[    0.909015] 0x0000000c0000-0x0000000d0000 : "0:CDT"
+[    0.913992] 0x0000000d0000-0x0000000e0000 : "0:DDRPARAMS"
+[    0.919482] 0x0000000e0000-0x0000000f0000 : "0:APPSBLENV"
+[    0.924945] 0x0000000f0000-0x0000001e0000 : "0:APPSBL"
+[    0.930043] 0x0000001e0000-0x0000001f0000 : "0:MANUDATA"
+[    0.935263] 0x0000001f0000-0x000000200000 : "0:ART"
+[    0.941625] libphy: ipq40xx_mdio: probed
+[    0.948026] ipq40xx-mdio 90000.mdio: ipq40xx-mdio driver was registered
+[    0.953688] tun: Universal TUN/TAP device driver, 1.6
+[    0.958642] tun: (C) 1999-2004 Max Krasnyansky <maxk@qualcomm.com>
+[    0.964943] i2c /dev entries driver
+[    0.970237] sdhci: Secure Digital Host Controller Interface driver
+[    0.975412] sdhci: Copyright(c) Pierre Ossman
+[    0.979721] sdhci-pltfm: SDHCI platform and OF driver helper
+[    0.989713] nand: device found, Manufacturer ID: 0xef, Chip ID: 0xaa
+[    0.995059] nand: Winbond W25N01GV 128MiB 3.3V
+[    0.999464] nand: 128MiB, SLC, page size: 2048, OOB size: 64
+[    1.005142] Scanning device for bad blocks
+[    1.706043] random: nonblocking pool is initialized
+[    2.917880] 4 cmdlinepart partitions found on MTD device spi0.1
+[    2.922789] Creating 4 MTD partitions on "spi0.1":
+[    2.927546] 0x000000000000-0x000003800000 : "rootfs"
+[    2.933634] mtd: device 9 (rootfs) set to be root filesystem
+[    2.940446] mtdsplit: no squashfs found in "rootfs"
+[    2.944323] mtdsplit: no squashfs found in "spi0.1"
+[    2.949159] 0x000003800000-0x000007000000 : "rootfs_1"
+[    2.955355] 0x000007000000-0x000007f00000 : "var_config"
+[    2.960601] 0x000007f00000-0x000007fc0000 : "Oops_log"
+[    3.118627] mtdoops: Attached to MTD device 12
+[    3.125524] nf_conntrack version 0.5.0 (3833 buckets, 15332 max)
+[    3.131347] ip_tables: (C) 2000-2006 Netfilter Core Team
+[    3.135975] TCP: cubic registered
+[    3.139686] NET: Registered protocol family 10
+[    3.144645] NET: Registered protocol family 17
+[    3.148177] Bridge firewalling registered
+[    3.152097] bridge_nlevent_init: Initializing Bridge HTTP redirect event mechanism
+[    3.159649] br: Unicast isolation disabled
+[    3.163700] br: Multicast isolation disabled
+[    3.167935] br: HTTP redirect disabled
+[    3.171670] 8021q: 802.1Q VLAN Support v1.8
+[    3.176034] Registering SWP/SWPB emulation handler
+[    3.181637] regulator-dummy: disabling
+[    3.184837] UBI: attaching mtd10 to ubi0
+[    6.031795] UBI: scanning is finished
+[    6.106540] UBI: attached mtd10 (name "rootfs_1", size 56 MiB) to ubi0
+[    6.112070] UBI: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    6.118807] UBI: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    6.125509] UBI: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    6.132364] UBI: good PEBs: 448, bad PEBs: 0, corrupted PEBs: 0
+[    6.138252] UBI: user volume: 2, internal volumes: 1, max. volumes count: 128
+[    6.145386] UBI: max/mean erase counter: 1/0, WL threshold: 4096, image sequence number: 209501102
+[    6.154326] UBI: available PEBs: 219, total reserved PEBs: 229, PEBs reserved for bad PEB handling: 20
+[    6.163636] UBI: background thread "ubi_bgt0d" started, PID 71
+[    6.165731] drivers/rtc/hctosys.c: unable to open rtc device (rtc0)
+[    6.169034] clk: Not disabling unused clocks
+[    6.169039] ALSA device list:
+[    6.169042]   No soundcards found.
+[    6.205596] VFS: Mounted root (squashfs filesystem) readonly on device 31:14.
+[    6.212119] Freeing unused kernel memory: 184K (c0a00000 - c0a2e000)
+/bin/sh: can't access tty; job control turned off
+
