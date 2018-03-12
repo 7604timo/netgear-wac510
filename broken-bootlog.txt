@@ -1,0 +1,104 @@
+Format: Log Type - Time(microsec) - Message - Optional Info
+Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.1.1-00096
+S - IMAGE_VARIANT_STRING=DAABANAZA
+S - OEM_IMAGE_VERSION_STRING=CRM
+S - Boot Config, 0x00000021
+S - Core 0 Frequency, 0 MHz
+B -       261 - PBL, Start
+B -      1339 - bootable_media_detect_entry, Start
+B -      1679 - bootable_media_detect_success, Start
+B -      1693 - elf_loader_entry, Start
+B -      5076 - auth_hash_seg_entry, Start
+B -      7223 - auth_hash_seg_exit, Start
+B -    573341 - elf_segs_hash_verify_entry, Start
+B -    689004 - PBL, End
+B -    689029 - SBL1, Start
+B -    777415 - pm_device_init, Start
+D -         6 - pm_device_init, Delta
+B -    778928 - boot_flash_init, Start
+D -     63409 - boot_flash_init, Delta
+B -    846526 - boot_config_data_table_init, Start
+D -      3847 - boot_config_data_table_init, Delta - (419 Bytes)
+B -    853753 - clock_init, Start
+D -      7561 - clock_init, Delta
+B -    865836 - CDT version:2,Platform ID:8,Major ID:1,Minor ID:1,Subtype:0
+B -    869324 - sbl1_ddr_set_params, Start
+B -    874310 - cpr_init, Start
+D -         2 - cpr_init, Delta
+B -    878802 - Pre_DDR_clock_init, Start
+D -         4 - Pre_DDR_clock_init, Delta
+D -     13146 - sbl1_ddr_set_params, Delta
+B -    892503 - pm_driver_init, Start
+D -         2 - pm_driver_init, Delta
+B -    962732 - sbl1_wait_for_ddr_training, Start
+D -        29 - sbl1_wait_for_ddr_training, Delta
+B -    978556 - Image Load, Start
+D -    134944 - QSEE Image Loaded, Delta - (262104 Bytes)
+B -   1113996 - Image Load, Start
+D -      1444 - SEC Image Loaded, Delta - (2048 Bytes)
+B -   1124362 - Image Load, Start
+D -    213679 - APPSBL Image Loaded, Delta - (436880 Bytes)
+B -   1338465 - QSEE Execution, Start
+D -        59 - QSEE Execution, Delta
+B -   1344647 - SBL1, End
+D -    657728 - SBL1, Delta
+S - Flash Throughput, 2004 KB/s  (701451 Bytes,  349935 us)
+S - DDR Frequency, 537 MHz
+
+
+U-Boot 2012.07-V1.2.0.0 [local,local] (Oct 26 2016 - 02:39:01)
+
+smem ram ptable found: ver: 1 len: 3
+DRAM:  256 MiB
+machid : 0x8010100
+NAND:  spi_nand: spi_nand_flash_probe SF NAND ID 0:ef:aa:21
+SF: Detected W25N01GV with page size 2 KiB, total 128 MiB
+SF: Detected W25Q16 with page size 4 KiB, total 2 MiB
+ipq_spi: page_size: 0x100, sector_size: 0x1000, size: 0x200000
+130 MiB
+MMC:   
+In:    serial
+Out:   serial
+Err:   serial
+Product ID: WAC510
+machid: 8010100
+flash_type: 0
+Net:   MAC0 addr:a0:40:a0:7b:b7:6f
+PHY ID1: 0x4d
+PHY ID2: 0xd0b2
+ipq40xx_ess_sw_init done
+eth0
+Hit any key to stop autoboot:  0 
+Saving Environment to NAND...
+Erasing Nand...
+Erasing at 0xef000 -- 100% complete.
+Writing to Nand... done
+Boot count=3
+Creating 1 MTD partitions on "nand1":
+0x000000000000-0x000003800000 : "mtd=0"
+UBI: attaching mtd2 to ubi0
+UBI: physical eraseblock size:   131072 bytes (128 KiB)
+UBI: logical eraseblock size:    126976 bytes
+UBI: smallest flash I/O unit:    2048
+UBI: VID header offset:          2048 (aligned 2048)
+UBI: data offset:                4096
+UBI: attached mtd2 to ubi0
+UBI: MTD device name:            "mtd=0"
+UBI: MTD device size:            56 MiB
+UBI: number of good PEBs:        448
+UBI: number of bad PEBs:         0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    4096
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     4
+UBI: available PEBs:             16
+UBI: total number of reserved PEBs: 432
+UBI: number of PEBs reserved for bad PEB handling: 4
+UBI: max/mean erase counter: 2/0
+Read 0 bytes from volume kernel to 84000000
+No size specified -> Using max size (2793472)
+Config not availabale
+
+bootipq failed!!
+resetting ...
