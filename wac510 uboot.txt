@@ -1,0 +1,65 @@
+(IPQ40xx) # bootipq
+Saving Environment to NAND...
+Erasing Nand...
+Erasing at 0xef000 -- 100% complete.
+Writing to Nand... done
+Boot count=1
+Creating 1 MTD partitions on "nand1":
+0x000003800000-0x000007000000 : "mtd=0"
+UBI: attaching mtd2 to ubi0
+UBI: physical eraseblock size:   131072 bytes (128 KiB)
+UBI: logical eraseblock size:    126976 bytes
+UBI: smallest flash I/O unit:    2048
+UBI: VID header offset:          2048 (aligned 2048)
+UBI: data offset:                4096
+UBI: attached mtd2 to ubi0
+UBI: MTD device name:            "mtd=0"
+UBI: MTD device size:            56 MiB
+UBI: number of good PEBs:        448
+UBI: number of bad PEBs:         0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    4096
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     2
+UBI: available PEBs:             235
+UBI: total number of reserved PEBs: 213
+UBI: number of PEBs reserved for bad PEB handling: 4
+UBI: max/mean erase counter: 1/0
+Read 0 bytes from volume kernel to 84000000
+No size specified -> Using max size (3936256)
+## Booting kernel from FIT Image at 84000000 ...
+   Using 'config@5' configuration
+   Trying 'kernel@1' kernel subimage
+     Description:  ARM OpenWrt Linux-3.14.43
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x840000e4
+     Data Size:    3472820 Bytes = 3.3 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x80208000
+     Entry Point:  0x80208000
+     Hash algo:    crc32
+     Hash value:   6db87a6f
+     Hash algo:    sha1
+     Hash value:   23ad48951baef0f0fadb4007ff5fa207cc2e5549
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Flattened Device Tree from FIT Image at 84000000
+   Using 'config@5' configuration
+   Trying 'fdt@5' FDT blob subimage
+     Description:  ARM OpenWrt qcom-ipq40xx-ap.dkxx device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x84376364
+     Data Size:    33944 Bytes = 33.1 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   3aecff14
+     Hash algo:    sha1
+     Hash value:   d7f07f006716d75446fdb30fea85758eb1f57897
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Booting using the fdt blob at 0x84376364
+   Uncompressing Kernel Image ... OK
+   Loading Device Tree to 86ff4000, end 86fff497 ... OK
+Using machid 0x8010100 from environment
+
