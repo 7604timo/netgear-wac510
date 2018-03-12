@@ -417,18 +417,11 @@ root@OpenWrt:/# ubinfo
 UBI version:                    1
 Count of UBI devices:           0
 UBI control device major/minor: 10:59
-root@OpenWrt:/# scp tim@192.168.1.10:/media/tim/15c59ee2-c7c2-466f-bcad-91c4baa3
-4f8f/home/github/openwrt/bin/targets/ipq806x/generic/openwrt-ipq806x-netgear_wac
-510-squashfs-nand-sysupgrade.bin /tmp
-
-Host '192.168.1.10' is not in the trusted hosts file.
-(ssh-rsa fingerprint sha1!! 6e:11:fe:52:f9:1c:42:f8:2a:cc:b5:73:dd:57:ca:48:f6:54:ed:4b)
-Do you want to continue connecting? (y/n) y
+root@OpenWrt:/# scp tim@192.168.1.10:/openwrt-ipq806x-netgear_wac510-squashfs-nand-sysupgrade.bin /tmp
 tim@192.168.1.10's password: 
 openwrt-ipq806x-netgear_wac510-squashfs-nand- 100% 5150KB   2.5MB/s   00:02    
 root@OpenWrt:/# cd /tmp/
-root@OpenWrt:/tmp# sysupgrade -v openwrt-ipq806x-netgear_wac510-squashfs-nand-sy
-supgrade.bin 
+root@OpenWrt:/tmp# sysupgrade -v openwrt-ipq806x-netgear_wac510-squashfs-nand-sysupgrade.bin 
 Cannot save config while running from ramdisk.
 Commencing upgrade. All shell sessions will be closed now.
 Watchdog handover: fd=3
@@ -567,3 +560,38 @@ Config not availabale
 bootipq failed!!
 resetting ...
 
+(IPQ40xx) # bootipq debug
+Saving Environment to NAND...
+Erasing Nand...
+Erasing at 0xef000 -- 100% complete.
+Writing to Nand... done
+bootargs=WAC510 ubi.mtd=rootfs root=mtd:ubi_rootfs rootfstype=squashfs mtdparts=spi0.1:56m(rootfs),56m(rootfs_1),15m(var_config),768t
+Booting from flash
+Boot count=4
+Creating 1 MTD partitions on "nand1":
+0x000000000000-0x000003800000 : "mtd=0"
+UBI: attaching mtd2 to ubi0
+UBI: physical eraseblock size:   131072 bytes (128 KiB)
+UBI: logical eraseblock size:    126976 bytes
+UBI: smallest flash I/O unit:    2048
+UBI: VID header offset:          2048 (aligned 2048)
+UBI: data offset:                4096
+UBI: attached mtd2 to ubi0
+UBI: MTD device name:            "mtd=0"
+UBI: MTD device size:            56 MiB
+UBI: number of good PEBs:        448
+UBI: number of bad PEBs:         0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    4096
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     4
+UBI: available PEBs:             16
+UBI: total number of reserved PEBs: 432
+UBI: number of PEBs reserved for bad PEB handling: 4
+UBI: max/mean erase counter: 2/0
+Read 0 bytes from volume kernel to 84000000
+No size specified -> Using max size (2793472)
+Config not availabale
+
+bootipq failed!!
+resetting ...
