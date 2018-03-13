@@ -565,7 +565,7 @@ Saving Environment to NAND...
 Erasing Nand...
 Erasing at 0xef000 -- 100% complete.
 Writing to Nand... done
-bootargs=WAC510 ubi.mtd=rootfs root=mtd:ubi_rootfs rootfstype=squashfs mtdparts=spi0.1:56m(rootfs),56m(rootfs_1),15m(var_config),768t
+bootargs=WAC510 ubi.mtd=rootfs root=mtd:ubi_rootfs rootfstype=squashfs mtdparts=spi0.1:56m(rootfs),56m(rootfs_1),15m(var_config),768k(Oops_log) rootwait
 Booting from flash
 Boot count=4
 Creating 1 MTD partitions on "nand1":
