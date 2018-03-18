@@ -1,0 +1,397 @@
+Format: Log Type - Time(microsec) - Message - Optional Info
+Log Type: B - Since Boot(Power On Reset),  D - Delta,  S - Statistic
+S - QC_IMAGE_VERSION_STRING=BOOT.BF.3.1.1-00096
+S - IMAGE_VARIANT_STRING=DAABANAZA
+S - OEM_IMAGE_VERSION_STRING=CRM
+S - Boot Config, 0x00000021
+S - Core 0 Frequency, 0 MHz
+B -       261 - PBL, Start
+B -      1339 - bootable_media_detect_entry, Start
+B -      1679 - bootable_media_detect_success, Start
+B -      1693 - elf_loader_entry, Start
+B -      5076 - auth_hash_seg_entry, Start
+B -      7223 - auth_hash_seg_exit, Start
+B -    573341 - elf_segs_hash_verify_entry, Start
+B -    689005 - PBL, End
+B -    689030 - SBL1, Start
+B -    777416 - pm_device_init, Start
+D -         6 - pm_device_init, Delta
+B -    778929 - boot_flash_init, Start
+D -     62970 - boot_flash_init, Delta
+B -    846089 - boot_config_data_table_init, Start
+D -      3845 - boot_config_data_table_init, Delta - (419 Bytes)
+B -    853316 - clock_init, Start
+D -      7577 - clock_init, Delta
+B -    865416 - CDT version:2,Platform ID:8,Major ID:1,Minor ID:1,Subtype:0
+B -    868905 - sbl1_ddr_set_params, Start
+B -    873892 - cpr_init, Start
+D -         2 - cpr_init, Delta
+B -    878385 - Pre_DDR_clock_init, Start
+D -         4 - Pre_DDR_clock_init, Delta
+D -     13148 - sbl1_ddr_set_params, Delta
+B -    892088 - pm_driver_init, Start
+D -         2 - pm_driver_init, Delta
+B -    962407 - sbl1_wait_for_ddr_training, Start
+D -        29 - sbl1_wait_for_ddr_training, Delta
+B -    978018 - Image Load, Start
+D -    134941 - QSEE Image Loaded, Delta - (262104 Bytes)
+B -   1113456 - Image Load, Start
+D -      1445 - SEC Image Loaded, Delta - (2048 Bytes)
+B -   1123830 - Image Load, Start
+D -    213552 - APPSBL Image Loaded, Delta - (436880 Bytes)
+B -   1337805 - QSEE Execution, Start
+D -        58 - QSEE Execution, Delta
+B -   1343984 - SBL1, End
+D -    657065 - SBL1, Delta
+S - Flash Throughput, 2005 KB/s  (701451 Bytes,  349803 us)
+S - DDR Frequency, 537 MHz
+
+
+U-Boot 2012.07-V1.2.0.0 [local,local] (Oct 26 2016 - 02:39:01)
+
+smem ram ptable found: ver: 1 len: 3
+DRAM:  256 MiB
+machid : 0x8010100
+NAND:  spi_nand: spi_nand_flash_probe SF NAND ID 0:ef:aa:21
+SF: Detected W25N01GV with page size 2 KiB, total 128 MiB
+SF: Detected W25Q16 with page size 4 KiB, total 2 MiB
+ipq_spi: page_size: 0x100, sector_size: 0x1000, size: 0x200000
+130 MiB
+MMC:   
+In:    serial
+Out:   serial
+Err:   serial
+Product ID: WAC510
+machid: 8010100
+flash_type: 0
+Net:   MAC0 addr:a0:40:a0:7b:b7:6f
+PHY ID1: 0x4d
+PHY ID2: 0xd0b2
+ipq40xx_ess_sw_init done
+eth0
+Hit any key to stop autoboot:  0 
+Creating 1 MTD partitions on "nand1":
+0x000000000000-0x000003800000 : "mtd=0"
+UBI: attaching mtd2 to ubi0
+UBI: physical eraseblock size:   131072 bytes (128 KiB)
+UBI: logical eraseblock size:    126976 bytes
+UBI: smallest flash I/O unit:    2048
+UBI: VID header offset:          2048 (aligned 2048)
+UBI: data offset:                4096
+UBI: attached mtd2 to ubi0
+UBI: MTD device name:            "mtd=0"
+UBI: MTD device size:            56 MiB
+UBI: number of good PEBs:        448
+UBI: number of bad PEBs:         0
+UBI: max. allowed volumes:       128
+UBI: wear-leveling threshold:    4096
+UBI: number of internal volumes: 1
+UBI: number of user volumes:     4
+UBI: available PEBs:             16
+UBI: total number of reserved PEBs: 432
+UBI: number of PEBs reserved for bad PEB handling: 4
+UBI: max/mean erase counter: 3/1
+Read 0 bytes from volume kernel to 84000000
+No size specified -> Using max size (2920448)
+## Booting kernel from FIT Image at 84000000 ...
+   Using 'config@1' configuration
+   Trying 'kernel@1' kernel subimage
+     Description:  ARM OpenWrt Linux-4.9.86
+     Type:         Kernel Image
+     Compression:  gzip compressed
+     Data Start:   0x840000e4
+     Data Size:    2763349 Bytes = 2.6 MiB
+     Architecture: ARM
+     OS:           Linux
+     Load Address: 0x80208000
+     Entry Point:  0x80208000
+     Hash algo:    crc32
+     Hash value:   2250ad7e
+     Hash algo:    sha1
+     Hash value:   422cdbe798cc33a8f5a341e6526b152d2f870cc9
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Flattened Device Tree from FIT Image at 84000000
+   Using 'config@1' configuration
+   Trying 'fdt@1' FDT blob subimage
+     Description:  ARM OpenWrt netgear_wac510 device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x842a2c74
+     Data Size:    34034 Bytes = 33.2 KiB
+     Architecture: ARM
+     Hash algo:    crc32
+     Hash value:   c9cee5a1
+     Hash algo:    sha1
+     Hash value:   56fcd1b6cbee8e6f9b61d6c4bacea03b3cd5b5c5
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Booting using the fdt blob at 0x842a2c74
+   Uncompressing Kernel Image ... OK
+   Loading Device Tree to 86ff4000, end 86fff4f1 ... OK
+Using machid 0x8010100 from environment
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0
+[    0.000000] Linux version 4.9.86 (tim@ITDept002) (gcc version 7.3.0 (OpenWrt GCC 7.3.0 r6473-63dc6ba) ) #0 SMP Wed Mar 14 09:20:27 2018
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt:Machine model: Netgear WAC510
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] percpu: Embedded 13 pages/cpu @cfda9000 s20940 r8192 d24116 u53248
+[    0.000000] Built 1 zonelists in Zone order, mobility grouping on.  Total pages: 63744
+[    0.000000] Kernel command line: ubi.mtd=rootfs root=/dev/ubiblock0_2
+[    0.000000] Bootloader command line not present
+[    0.000000] PID hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000000] Dentry cache hash table entries: 32768 (order: 5, 131072 bytes)
+[    0.000000] Inode-cache hash table entries: 16384 (order: 4, 65536 bytes)
+[    0.000000] Memory: 248456K/257024K available (3839K kernel code, 246K rwdata, 1240K rodata, 244K init, 242K bss, 8568K reserved, 0K cma-reserved,)
+[    0.000000] Virtual kernel memory layout:
+[    0.000000]     vector  : 0xffff0000 - 0xffff1000   (   4 kB)
+[    0.000000]     fixmap  : 0xffc00000 - 0xfff00000   (3072 kB)
+[    0.000000]     vmalloc : 0xd0800000 - 0xff800000   ( 752 MB)
+[    0.000000]     lowmem  : 0xc0000000 - 0xd0000000   ( 256 MB)
+[    0.000000]     pkmap   : 0xbfe00000 - 0xc0000000   (   2 MB)
+[    0.000000]     modules : 0xbf000000 - 0xbfe00000   (  14 MB)
+[    0.000000]       .text : 0xc0208000 - 0xc05c7f78   (3840 kB)
+[    0.000000]       .init : 0xc071f000 - 0xc075c000   ( 244 kB)
+[    0.000000]       .data : 0xc075c000 - 0xc0799a40   ( 247 kB)
+[    0.000000]        .bss : 0xc079b000 - 0xc07d78e8   ( 243 kB)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] Hierarchical RCU implementation.
+[    0.000000] NR_IRQS:16 nr_irqs:16 16
+[    0.000000] arm_arch_timer: Architected cp15 timer(s) running at 48.00MHz (virt).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0xb11fd3bfb, max_idle_ns: 440795203732 ns
+[    0.000007] sched_clock: 56 bits at 48MHz, resolution 20ns, wraps every 4398046511096ns
+[    0.000021] Switching to timer-based delay loop, resolution 20ns
+[    0.000406] Calibrating delay loop (skipped), value calculated using timer frequency.. 96.00 BogoMIPS (lpj=480000)
+[    0.000423] pid_max: default: 32768 minimum: 301
+[    0.000523] Mount-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.000535] Mountpoint-cache hash table entries: 1024 (order: 0, 4096 bytes)
+[    0.001122] CPU: Testing write buffer coherency: ok
+[    0.001431] Setting up static identity map for 0x80208280 - 0x802082d8
+[    0.005413] Brought up 4 CPUs
+[    0.005434] SMP: Total of 4 processors activated (384.00 BogoMIPS).
+[    0.005441] CPU: All CPU(s) started in SVC mode.
+[    0.017409] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.017607] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.017635] futex hash table entries: 1024 (order: 4, 65536 bytes)
+[    0.017800] pinctrl core: initialized pinctrl subsystem
+[    0.019098] NET: Registered protocol family 16
+[    0.019371] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.049989] cpuidle: using governor ladder
+[    0.080017] cpuidle: using governor menu
+[    0.120890] msm_bus_fabric_init_driver
+[    0.121153] msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+[    0.121171] msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+[    0.121188] msm_bus_device 580000.ad-hoc-bus: Failed to get bus clk for bus4096 ctx1
+[    0.121231] msm_bus_device 580000.ad-hoc-bus: Util-fact is missing, default to 100
+[    0.121244] msm_bus_device 580000.ad-hoc-bus: Vrail-comp is missing, default to 100
+[    0.121260] msm_bus_device 580000.ad-hoc-bus: Failed to get bus clk for bus1024 ctx1
+[    0.180014] usbcore: registered new interface driver usbfs
+[    0.180096] usbcore: registered new interface driver hub
+[    0.180211] usbcore: registered new device driver usb
+[    0.180312] pps_core: LinuxPPS API ver. 1 registered
+[    0.180323] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.180356] PTP clock support registered
+[    0.181646] clocksource: Switched to clocksource arch_sys_counter
+[    0.182651] NET: Registered protocol family 2
+[    0.183281] TCP established hash table entries: 2048 (order: 1, 8192 bytes)
+[    0.183327] TCP bind hash table entries: 2048 (order: 2, 16384 bytes)
+[    0.183375] TCP: Hash tables configured (established 2048 bind 2048)
+[    0.183439] UDP hash table entries: 256 (order: 1, 8192 bytes)
+[    0.183472] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes)
+[    0.183653] NET: Registered protocol family 1
+[    0.184909] No memory allocated for crashlog
+[    0.185133] workingset: timestamp_bits=30 max_order=16 bucket_order=0
+[    0.191111] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.191126] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.195613] io scheduler noop registered
+[    0.195628] io scheduler deadline registered (default)
+[    0.199742] tcsr 194b000.tcsr: setting usb hs phy mode select = e700e7
+[    0.199811] tcsr 1953000.ess_tcsr: setting ess interface select = 0
+[    0.199862] tcsr 1949000.tcsr: setting wifi_glb_cfg = 41000000
+[    0.199911] tcsr 1957000.tcsr: setting wifi_noc_memtype_m0_m2 = 2222222
+[    0.200063] Serial: 8250/16550 driver, 2 ports, IRQ sharing disabled
+[    0.200832] msm_serial 78af000.serial: msm_serial: detected port #0
+[    0.200876] msm_serial 78af000.serial: uartclk = 1843200
+[    0.200919] 78af000.serial: ttyMSM0 at MMIO 0x78af000 (irq = 125, base_baud = 115200) is a MSM
+[    0.200946] msm_serial: console setup on port #0
+[    0.732828] console [ttyMSM0] enabled
+[    0.737858] msm_serial: driver initialized
+[    0.748249] loop: module loaded
+[    0.749362] spi_qup 78b5000.spi: IN:block:16, fifo:64, OUT:block:16, fifo:64
+[    0.751066] m25p80 spi0.0: found s25fl016k, expected mx25l1606e
+[    0.762779] random: fast init done
+[    0.766435] m25p80 spi0.0: s25fl016k (2048 Kbytes)
+[    0.766645] 9 ofpart partitions found on MTD device spi0.0
+[    0.771378] Creating 9 MTD partitions on "spi0.0":
+[    0.776872] 0x000000000000-0x000000040000 : "0:SBL1"
+[    0.782631] 0x000000040000-0x000000060000 : "0:MIBIB"
+[    0.787655] 0x000000060000-0x0000000c0000 : "0:QSEE"
+[    0.792630] 0x0000000c0000-0x0000000d0000 : "0:CDT"
+[    0.797540] 0x0000000d0000-0x0000000e0000 : "0:DDRPARAMS"
+[    0.802269] 0x0000000e0000-0x0000000f0000 : "0:APPSBLENV"
+[    0.807767] 0x0000000f0000-0x0000001e0000 : "0:APPSBL"
+[    0.813171] 0x0000001e0000-0x0000001f0000 : "0:MANUDATA"
+[    0.818242] 0x0000001f0000-0x000000200000 : "0:ART"
+[    0.824712] libphy: ipq40xx_mdio: probed
+[    0.861450] ESS reset ok!
+[    0.894448] ESS reset ok!
+[    1.332116] libphy: Fixed MDIO Bus: probed
+[    1.332142] libphy: mdio_driver_register: qca8k
+[    1.432339] i2c /dev entries driver
+[    1.434194] cpufreq: cpufreq_online: CPU0: Running at unlisted freq: 666000 KHz
+[    1.434699] cpufreq: cpufreq_online: CPU0: Unlisted initial frequency changed to: 716800 KHz
+[    1.442471] sdhci: Secure Digital Host Controller Interface driver
+[    1.450607] sdhci: Copyright(c) Pierre Ossman
+[    1.456904] sdhci-pltfm: SDHCI platform and OF driver helper
+[    1.514135] nand: device found, Manufacturer ID: 0xef, Chip ID: 0xaa
+[    1.514369] nand: Winbond W25N01GV 1G 3.3V 8-bit
+[    1.519793] nand: 128 MiB, SLC, erase size: 128 KiB, page size: 2048, OOB size: 64
+[    1.524713] Scanning device for bad blocks
+[    2.105679] random: crng init done
+[    2.153452] 1 ofpart partitions found on MTD device spi0.1
+[    2.153483] Creating 1 MTD partitions on "spi0.1":
+[    2.157841] 0x000000000000-0x000003800000 : "rootfs"
+[    2.164424] mtd: device 9 (rootfs) set to be root filesystem
+[    2.170333] mtdsplit: no squashfs found in "rootfs"
+[    2.174881] NET: Registered protocol family 10
+[    2.179797] NET: Registered protocol family 17
+[    2.182803] 8021q: 802.1Q VLAN Support v1.8
+[    2.186993] Registering SWP/SWPB emulation handler
+[    2.196139] ubi0: attaching mtd9
+[    7.059474] ubi0: scanning is finished
+[    7.181402] ubi0: attached mtd9 (name "rootfs", size 56 MiB)
+[    7.181478] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    7.186241] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    7.192896] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    7.199713] ubi0: good PEBs: 448, bad PEBs: 0, corrupted PEBs: 0
+[    7.206517] ubi0: user volume: 4, internal volumes: 1, max. volumes count: 128
+[    7.212776] ubi0: max/mean erase counter: 3/1, WL threshold: 4096, image sequence number: 1011195579
+[    7.219774] ubi0: available PEBs: 0, total reserved PEBs: 448, PEBs reserved for bad PEB handling: 20
+[    7.229149] ubi0: background thread "ubi_bgt0d" started, PID 105
+[    7.246770] block ubiblock0_2: created from ubi0:2(rootfs)
+[    7.246848] hctosys�[    7.289515] VFS: Mounted root (squashfs filesystem) readonly on device 254:0.
+[    7.291369] Freeing unused kernel memory: 244K
+[    7.295794] This architecture does not have kernel memory protection.
+[    8.269859] init: Console is alive
+[    8.270128] init: - watchdog -
+[   10.449921] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[   10.653776] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[   10.658770] SCSI subsystem initialized
+[   10.672089] ehci-platform: EHCI generic platform driver
+[   10.677677] ohci_hcd: USB 1.1 'Open' Host Controller (OHCI) Driver
+[   10.678688] ohci-platform: OHCI generic platform driver
+[   10.967203] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[   10.967286] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 1
+[   10.971951] xhci-hcd xhci-hcd.0.auto: hcc params 0x0228f665 hci version 0x100 quirks 0x02010010
+[   10.979226] xhci-hcd xhci-hcd.0.auto: irq 192, io mem 0x08a00000
+[   10.997503] hub 1-0:1.0: USB hub found
+[   10.998265] hub 1-0:1.0: 1 port detected
+[   11.006058] xhci-hcd xhci-hcd.0.auto: xHCI Host Controller
+[   11.006482] xhci-hcd xhci-hcd.0.auto: new USB bus registered, assigned bus number 2
+[   11.012404] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[   11.027268] hub 2-0:1.0: USB hub found
+[   11.028017] hub 2-0:1.0: 1 port detected
+[   11.035260] xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+[   11.035803] xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 3
+[   11.041638] xhci-hcd xhci-hcd.1.auto: hcc params 0x0220f665 hci version 0x100 quirks 0x02010010
+[   11.048067] xhci-hcd xhci-hcd.1.auto: irq 193, io mem 0x06000000
+[   11.066031] hub 3-0:1.0: USB hub found
+[   11.066792] hub 3-0:1.0: 1 port detected
+[   11.073245] xhci-hcd xhci-hcd.1.auto: xHCI Host Controller
+[   11.073667] xhci-hcd xhci-hcd.1.auto: new USB bus registered, assigned bus number 4
+[   11.079637] usb usb4: We don't know the algorithms for LPM for this host, disabling LPM.
+[   11.095088] hub 4-0:1.0: USB hub found
+[   11.095844] hub 4-0:1.0: config failed, hub doesn't have any ports! (err -19)
+[   11.116296] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[   11.134016] init: - preinit -
+[   13.050450] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   13.050540] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[   16.811872] UBIFS (ubi0:3): background thread "ubifs_bgt0_3" started, PID 181
+[   17.183252] UBIFS (ubi0:3): recovery needed
+[   17.191665] spi_qup 78b5000.spi: unexpected irq 00000000 00000000 00000d40
+[   18.873617] UBIFS (ubi0:3): recovery completed
+[   18.873969] UBIFS (ubi0:3): UBIFS: mounted UBI device 0, volume 3, name "rootfs_data"
+[   18.877014] UBIFS (ubi0:3): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[   18.884988] UBIFS (ubi0:3): FS size: 21585920 bytes (20 MiB, 170 LEBs), journal size 1142784 bytes (1 MiB, 9 LEBs)
+[   18.894844] UBIFS (ubi0:3): reserved for root: 1019556 bytes (995 KiB)
+[   18.905086] UBIFS (ubi0:3): media format: w4/r0 (latest is w4/r0), UUID 034258E0-3935-4D9C-80F0-3FC6DE5FD7B2, small LPT model
+[   18.979309] mount_root: switching to ubifs overlay
+[   19.080224] urandom-seed: Seeding with /etc/urandom.seed
+[   19.338479] procd: - early -
+[   19.338605] procd: - watchdog -
+[   19.982729] procd: - watchdog -
+[   19.985417] procd: - ubus -
+[   20.857251] procd: - init -
+Please press Enter to activate this console.
+[   22.006887] kmodloader: loading kernel modules from /etc/modules.d/*
+[   22.018526] ip6_tables: (C) 2000-2006 Netfilter Core Team
+[   22.043286] Loading modules backported from Linux version wt-2017-11-01-0-gfe248fc2c180
+[   22.043358] Backport generated by backports.git v4.14-rc2-1-31-g86cf0e5d
+[   22.058827] ip_tables: (C) 2000-2006 Netfilter Core Team
+[   22.075819] nf_conntrack version 0.5.0 (4096 buckets, 16384 max)
+[   22.138485] spi_gpio soc:led_spi: gpio-miso property not found, switching to no-rx mode
+[   22.170699] xt_time: kernel timezone is -0000
+[   22.230997] PPP generic driver version 2.4.2
+[   22.232169] NET: Registered protocol family 24
+[   22.441706] ath10k_ahb a000000.wifi: Direct firmware load for ath10k/QCA4019/hw1.0/firmware-6.bin failed with error -2
+[   22.441750] ath10k_ahb a000000.wifi: Falling back to user helper
+[   22.482609] firmware ath10k!QCA4019!hw1.0!firmware-6.bin: firmware_loading_store: map pages failed
+[   23.530630] ath10k_ahb a000000.wifi: qca4019 hw1.0 target 0x01000000 chip_id 0x003b00ff sub 0000:0000
+[   23.530675] ath10k_ahb a000000.wifi: kconfig debug 0 debugfs 1 tracing 0 dfs 1 testmode 1
+[   23.543620] ath10k_ahb a000000.wifi: firmware ver 10.4-3.4-00104 api 5 features no-p2p,mfp,peer-flow-ctrl,btcoex-param,allows-mesh-bcast,no-ps crc7
+[   23.588451] ath10k_ahb a000000.wifi: board_file api 2 bmi_id 0:16 crc32 de67223f
+[   24.930654] ath10k_ahb a000000.wifi: htt-ver 2.2 wmi-op 6 htt-op 4 cal pre-cal-file max-sta 512 raw 0 hwcrypto 1
+[   25.148405] ath10k_ahb a800000.wifi: Direct firmware load for ath10k/QCA4019/hw1.0/firmware-6.bin failed with error -2
+[   25.148477] ath10k_ahb a800000.wifi: Falling back to user helper
+[   25.565136] firmware ath10k!QCA4019!hw1.0!firmware-6.bin: firmware_loading_store: map pages failed
+[   25.565403] ath10k_ahb a800000.wifi: qca4019 hw1.0 target 0x01000000 chip_id 0x003b00ff sub 0000:0000
+[   25.573203] ath10k_ahb a800000.wifi: kconfig debug 0 debugfs 1 tracing 0 dfs 1 testmode 1
+[   25.598740] ath10k_ahb a800000.wifi: firmware ver 10.4-3.4-00104 api 5 features no-p2p,mfp,peer-flow-ctrl,btcoex-param,allows-mesh-bcast,no-ps crc7
+[   25.640649] ath10k_ahb a800000.wifi: board_file api 2 bmi_id 0:17 crc32 de67223f
+[   26.983412] ath10k_ahb a800000.wifi: htt-ver 2.2 wmi-op 6 htt-op 4 cal pre-cal-file max-sta 512 raw 0 hwcrypto 1
+[   27.004377] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   30.244002] ess_edma c080000.edma: eth1: GMAC Link is up with phy_speed=1000
+[   30.245457] br-lan: port 1(eth1) entered blocking state
+[   30.250150] br-lan: port 1(eth1) entered disabled state
+[   30.255897] device eth1 entered promiscuous mode
+[   30.262677] br-lan: port 1(eth1) entered blocking state
+[   30.265159] br-lan: port 1(eth1) entered forwarding state
+[   30.270325] IPv6: ADDRCONF(NETDEV_UP): br-lan: link is not ready
+[   30.285459] IPv6: ADDRCONF(NETDEV_UP): eth0: link is not ready
+[   31.281748] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
+[   31.282301] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   32.322825] ess_edma c080000.edma: eth1: GMAC Link is down
+[   33.574695] IPv6: ADDRCONF(NETDEV_UP): wlan0: link is not ready
+[   35.152904] IPv6: ADDRCONF(NETDEV_UP): wlan1: link is not ready
+[   35.154106] br-lan: port 1(eth1) entered disabled state
+[   35.158403] br-lan: port 2(wlan0) entered blocking state
+[   35.162920] br-lan: port 2(wlan0) entered disabled state
+[   35.169296] device wlan0 entered promiscuous mode
+[   35.174561] br-lan: port 3(wlan1) entered blocking state
+[   35.178336] br-lan: port 3(wlan1) entered disabled state
+[   35.184344] device wlan1 entered promiscuous mode
+[   36.726126] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[   36.727745] br-lan: port 2(wlan0) entered blocking state
+[   36.732137] br-lan: port 2(wlan0) entered forwarding state
+[   36.957027] IPv6: ADDRCONF(NETDEV_CHANGE): wlan1: link becomes ready
+[   36.957333] br-lan: port 3(wlan1) entered blocking state
+[   36.962537] br-lan: port 3(wlan1) entered forwarding state
+
+
+
+BusyBox v1.27.2 () built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt SNAPSHOT, r6473-63dc6ba
+ -----------------------------------------------------
+root@OpenWrt:/#
