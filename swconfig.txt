@@ -1,0 +1,281 @@
+root@OpenWrt:/# swconfig list
+Found: switch0 - 90000.mdio
+root@OpenWrt:/# swconfig dev switch0 show
+Global attributes:
+        enable_vlan: 1
+        enable_mirror_rx: 0
+        enable_mirror_tx: 0
+        mirror_monitor_port: 0
+        mirror_source_port: 0
+        linkdown: ???
+Port 0:
+        mib: Port 0 MIB counters
+RxBroad     : 1482
+RxPause     : 0
+RxMulti     : 94
+RxFcsErr    : 0
+RxAlignErr  : 0
+RxRunt      : 0
+RxFragment  : 0
+Rx64Byte    : 78
+Rx128Byte   : 65
+Rx256Byte   : 73
+Rx512Byte   : 1359
+Rx1024Byte  : 0
+Rx1518Byte  : 1
+RxMaxByte   : 0
+RxTooLong   : 0
+RxGoodByte  : 499594
+RxBadByte   : 0
+RxOverFlow  : 0
+Filtered    : 725
+TxBroad     : 120
+TxPause     : 0
+TxMulti     : 12
+TxUnderRun  : 0
+Tx64Byte    : 9
+Tx128Byte   : 100
+Tx256Byte   : 20
+Tx512Byte   : 49
+Tx1024Byte  : 0
+Tx1518Byte  : 0
+TxMaxByte   : 0
+TxOverSize  : 0
+TxByte      : 27435
+TxCollision : 0
+TxAbortCol  : 0
+TxMultiCol  : 0
+TxSingleCol : 0
+TxExcDefer  : 0
+TxDefer     : 0
+TxLateCol   : 0
+
+        pvid: 0
+        link: port:0 link:up speed:1000baseT full-duplex txflow rxflow 
+Port 1:
+        mib: Port 1 MIB counters
+RxBroad     : 0
+RxPause     : 0
+RxMulti     : 0
+RxFcsErr    : 0
+RxAlignErr  : 0
+RxRunt      : 0
+RxFragment  : 0
+Rx64Byte    : 0
+Rx128Byte   : 0
+Rx256Byte   : 0
+Rx512Byte   : 0
+Rx1024Byte  : 0
+Rx1518Byte  : 0
+RxMaxByte   : 0
+RxTooLong   : 0
+RxGoodByte  : 0
+RxBadByte   : 0
+RxOverFlow  : 0
+Filtered    : 0
+TxBroad     : 0
+TxPause     : 0
+TxMulti     : 0
+TxUnderRun  : 0
+Tx64Byte    : 0
+Tx128Byte   : 0
+Tx256Byte   : 0
+Tx512Byte   : 0
+Tx1024Byte  : 0
+Tx1518Byte  : 0
+TxMaxByte   : 0
+TxOverSize  : 0
+TxByte      : 0
+TxCollision : 0
+TxAbortCol  : 0
+TxMultiCol  : 0
+TxSingleCol : 0
+TxExcDefer  : 0
+TxDefer     : 0
+TxLateCol   : 0
+
+        pvid: 1
+        link: port:1 link:down
+Port 2:
+        mib: Port 2 MIB counters
+RxBroad     : 0
+RxPause     : 0
+RxMulti     : 0
+RxFcsErr    : 0
+RxAlignErr  : 0
+RxRunt      : 0
+RxFragment  : 0
+Rx64Byte    : 0
+Rx128Byte   : 0
+Rx256Byte   : 0
+Rx512Byte   : 0
+Rx1024Byte  : 0
+Rx1518Byte  : 0
+RxMaxByte   : 0
+RxTooLong   : 0
+RxGoodByte  : 0
+RxBadByte   : 0
+RxOverFlow  : 0
+Filtered    : 0
+TxBroad     : 0
+TxPause     : 0
+TxMulti     : 0
+TxUnderRun  : 0
+Tx64Byte    : 0
+Tx128Byte   : 0
+Tx256Byte   : 0
+Tx512Byte   : 0
+Tx1024Byte  : 0
+Tx1518Byte  : 0
+TxMaxByte   : 0
+TxOverSize  : 0
+TxByte      : 0
+TxCollision : 0
+TxAbortCol  : 0
+TxMultiCol  : 0
+TxSingleCol : 0
+TxExcDefer  : 0
+TxDefer     : 0
+TxLateCol   : 0
+
+        pvid: 1
+        link: port:2 link:down
+Port 3:
+        mib: Port 3 MIB counters
+RxBroad     : 0
+RxPause     : 0
+RxMulti     : 0
+RxFcsErr    : 0
+RxAlignErr  : 0
+RxRunt      : 0
+RxFragment  : 0
+Rx64Byte    : 0
+Rx128Byte   : 0
+Rx256Byte   : 0
+Rx512Byte   : 0
+Rx1024Byte  : 0
+Rx1518Byte  : 0
+RxMaxByte   : 0
+RxTooLong   : 0
+RxGoodByte  : 0
+RxBadByte   : 0
+RxOverFlow  : 0
+Filtered    : 0
+TxBroad     : 0
+TxPause     : 0
+TxMulti     : 0
+TxUnderRun  : 0
+Tx64Byte    : 0
+Tx128Byte   : 0
+Tx256Byte   : 0
+Tx512Byte   : 0
+Tx1024Byte  : 0
+Tx1518Byte  : 0
+TxMaxByte   : 0
+TxOverSize  : 0
+TxByte      : 0
+TxCollision : 0
+TxAbortCol  : 0
+TxMultiCol  : 0
+TxSingleCol : 0
+TxExcDefer  : 0
+TxDefer     : 0
+TxLateCol   : 0
+
+        pvid: 1
+        link: port:3 link:down
+Port 4:
+        mib: Port 4 MIB counters
+RxBroad     : 83
+RxPause     : 0
+RxMulti     : 60
+RxFcsErr    : 0
+RxAlignErr  : 0
+RxRunt      : 0
+RxFragment  : 0
+Rx64Byte    : 20
+Rx128Byte   : 49
+Rx256Byte   : 47
+Rx512Byte   : 27
+Rx1024Byte  : 0
+Rx1518Byte  : 0
+RxMaxByte   : 0
+RxTooLong   : 0
+RxGoodByte  : 22539
+RxBadByte   : 0
+RxOverFlow  : 0
+Filtered    : 66
+TxBroad     : 71
+TxPause     : 0
+TxMulti     : 14
+TxUnderRun  : 0
+Tx64Byte    : 6
+Tx128Byte   : 36
+Tx256Byte   : 16
+Tx512Byte   : 27
+Tx1024Byte  : 0
+Tx1518Byte  : 0
+TxMaxByte   : 0
+TxOverSize  : 0
+TxByte      : 14733
+TxCollision : 0
+TxAbortCol  : 0
+TxMultiCol  : 0
+TxSingleCol : 0
+TxExcDefer  : 0
+TxDefer     : 0
+TxLateCol   : 0
+
+        pvid: 1
+        link: port:4 link:down
+Port 5:
+        mib: Port 5 MIB counters
+RxBroad     : 49
+RxPause     : 0
+RxMulti     : 20
+RxFcsErr    : 0
+RxAlignErr  : 0
+RxRunt      : 0
+RxFragment  : 0
+Rx64Byte    : 48
+Rx128Byte   : 19
+Rx256Byte   : 26
+Rx512Byte   : 22
+Rx1024Byte  : 0
+Rx1518Byte  : 0
+RxMaxByte   : 0
+RxTooLong   : 0
+RxGoodByte  : 15950
+RxBadByte   : 0
+RxOverFlow  : 0
+Filtered    : 14
+TxBroad     : 742
+TxPause     : 0
+TxMulti     : 24
+TxUnderRun  : 0
+Tx64Byte    : 36
+Tx128Byte   : 2
+Tx256Byte   : 22
+Tx512Byte   : 706
+Tx1024Byte  : 0
+Tx1518Byte  : 0
+TxMaxByte   : 0
+TxOverSize  : 0
+TxByte      : 250504
+TxCollision : 0
+TxAbortCol  : 0
+TxMultiCol  : 0
+TxSingleCol : 0
+TxExcDefer  : 0
+TxDefer     : 0
+TxLateCol   : 0
+
+        pvid: 2
+        link: port:5 link:up speed:1000baseT full-duplex rxflow auto
+VLAN 1:
+        vid: 1
+        ports: 0t 1 2 3 4 
+VLAN 2:
+        vid: 2
+        ports: 0t 5 
+root@OpenWrt:/#
