@@ -1,0 +1,283 @@
+#!/bin/sh
+
+# firmware-upgrade-file
+# Created on May 27, 2016
+#
+# Copyright (c) 2016, NETGEAR, Inc.
+# 350 East Plumeria, San Jose California, 95134, U.S.A.
+# All rights reserved.
+#
+#
+# This software is the confidential and proprietary information of
+# NETGEAR, Inc. ("Confidential Information"). You shall not
+# disclose such Confidential Information and shall use it only in
+# accordance with the terms of the license agreement you entered into
+# with NETGEAR.
+#
+# @author: Venkatesh Perumal <venkatesh.perumal@netgear.com> 
+
+. /usr/local/bin/downgrade_libs.sh
+
+#Global variables
+IMG_TAG="wac*"
+TMPDIR="/tmp"
+TMP_UPGRADE_DIR="$TMPDIR/upgrade"
+VERSION_FILE="$TMP_UPGRADE_DIR/version"
+FIRMWARE_FILE_MD5SUM="$TMP_UPGRADE_DIR/$IMG_TAG-ubifs-root.md5sum"
+FIRMWARE_FILE="$TMP_UPGRADE_DIR/$IMG_TAG-ubifs-root.img"
+FIRMWARE_VERSION=`cat $VERSION_FILE | cut -d '_' -f2`
+FW_UPG_PID_FILE="$TMPDIR/run/led_fw_upg.pid"
+MAGIC_NUM_FILE="$TMPDIR/magic_number.txt"
+UPGRADE_SUCCESS_FILE="$TMPDIR/upgrade_success"
+META_FILE="/tmp/upgrade/metadata.txt"
+LED_SCRIPT="/usr/local/bin/led.sh"
+TRIGGER_REBOOT="busybox reboot"
+DROP_CACHE_FILE="/proc/sys/vm/drop_caches"
+PRIMARY_MTD="/dev/mtd9"
+SECONDARY_MTD="/dev/mtd10"
+FLASH_ERASE="flash_eraseall"
+FLASH_WRITE="nandwrite"
+SETENV="fw_setenv"
+TAR="tar xvf"
+COPY="dd"
+RMDIR="rm -rf"
+RMFILE="rm -f"
+proceed_upgrade=`$PRINTENV proceed_upgrade | cut -c 17-`
+INIT_NODE_PID=`pidof node`
+device_state=`cat /tmp/cloud_connectivity`
+
+# Remove firmware_upgrade directory in /tmp
+clear_upgrade_dir()
+{
+    $RMDIR $TMP_UPGRADE_DIR
+    $RMFILE $1
+}
+
+# Check firmware file exist in tmp directory
+check_extract_fw_file()
+{
+    if [ -e $1 ]; then
+        mkdir -p $TMP_UPGRADE_DIR
+        $TAR $1 -C $TMP_UPGRADE_DIR
+        if [ ! -e $FIRMWARE_FILE_MD5SUM ] || [ ! -e $FIRMWARE_FILE ]; then
+            clear_upgrade_dir $1
+            echo "Firmware file not found!!"
+            exit 3
+        fi
+        $RMFILE $1
+        # Checking downgrade (or) upgrade. Return exit code 8 for downgrade.
+        # Return exit code 9 when user tries downgrade in non standalone mode.
+        uploaded_version=`grep -o -E '_V.{0,3}' $VERSION_FILE | cut -c 3-5 | sed 's/\.//'`
+        if [ "$3" == "check" ] && [ ${BOOT_VERSION} -gt $uploaded_version ] && [ $device_state -ne 2 ];then
+            echo "Downgrade not allowed in Insight mode"
+            clear_upgrade_dir $1
+            exit 10
+        elif [ "$3" == "check" ] && [ ${BOOT_VERSION} -gt $uploaded_version ] && [ $device_state -eq 2 ];then
+            echo "Downgrading firmware"
+            exit 9
+        fi
+    else
+        echo "Firmware tar file not found!!"
+        exit 3
+    fi
+}
+
+# Raise Alarm 
+raise_alarm()
+{
+    $RAISE_ALARM -i 3 -l 2 -m "Image Upgrade $1"
+}
+
+# Validate magic number of firmware
+check_magic_number()
+{
+    $COPY if=$TMP_UPGRADE_DIR/wac$1-ubifs-root.img of=$MAGIC_NUM_FILE bs=4 count=1
+    magic_number=`cat $MAGIC_NUM_FILE`
+
+    if [ "$magic_number" != "UBI#" ]; then
+        echo "Sorry!! Image file is not proper!!"
+        clear_upgrade_dir $2
+        exit 4
+    fi
+}
+
+# Start LED script
+start_blink_led()
+{
+    $LED_SCRIPT fw_upg 1 &
+    echo $! > ${FW_UPG_PID_FILE}
+}
+
+# Set Power LED to Solid Amber before reboot
+start_amber_led()
+{
+    $LED_SCRIPT pwr_amber 1
+}
+
+# Set variable in env partition
+# $1 - variable name, $2 - value
+set_env_var()
+{
+    $SETENV $1 $2
+
+}
+
+# Clearing cache
+drop_cache()
+{
+    echo 3 > $DROP_CACHE_FILE
+}
+
+# Start flashing image
+do_upgrade()
+{
+    if [ "$boot_offset" = "$primary_offset" ]; then
+        echo "Erasing rootfs_1 ($SECONDARY_MTD) ...."
+        $FLASH_ERASE $SECONDARY_MTD
+        sleep 1
+        echo "writing to rootfs_1 ...."
+        $FLASH_WRITE $SECONDARY_MTD $FIRMWARE_FILE
+    elif [ "$boot_offset" = "$secondary_offset" ]; then
+        echo "Erasing rootfs ($PRIMARY_MTD) ...."
+        $FLASH_ERASE $PRIMARY_MTD
+        sleep 1
+        echo "writing to rootfs ...."
+        $FLASH_WRITE $PRIMARY_MTD $FIRMWARE_FILE
+    else
+        echo "Env/Mfg data corruption found..!!!"
+        clear_upgrade_dir $1
+        exit 4
+    fi
+}
+
+# Swap primary and secondary Env variables
+swap_env_var()
+{
+    if [ "$boot_offset" = "$primary_offset" ]; then
+        set_env_var "primary" "$secondary_offset"
+        set_env_var "secondary" "$primary_offset"
+    elif [ "$boot_offset" = "$secondary_offset" ]; then
+        set_env_var "primary" "$primary_offset"
+        set_env_var "secondary" "$secondary_offset"
+    else
+        echo "Env/Mfg corruption found..!!!"
+        clear_upgrade_dir $1
+        exit 4
+    fi
+}
+
+# Update fw upgrade config strings
+update_master_config()
+{
+    conf_set system:FwUpdate:ImageAvailable 0
+    conf_set system:FwUpdate:ImageVersion 0
+    conf_save
+}
+
+# check for no-reboot argument
+no_reboot_check()
+{
+    echo "Image Upgrade Success!!!"
+    if [ "$1" == "no-reboot" ]; then
+        NODE_PID=`pidof node`
+        if [ "$NODE_PID" == "$INIT_NODE_PID" ]; then
+            exit 0
+        else
+            $TRIGGER_REBOOT
+        fi
+    else
+        $TRIGGER_REBOOT
+    fi
+}
+
+# Update Env partition variables
+update_env()
+{
+    swap_env_var $1
+    set_env_var "fw_upgrade" "1"
+    touch $UPGRADE_SUCCESS_FILE
+    clear_upgrade_dir $1
+    # Updating FW strings here only in upgrade case..
+    if [ "$3" == "check" ]; then
+        update_master_config
+    fi
+    start_amber_led
+    no_reboot_check $2
+}
+
+# Get checksum of firmware
+fw_upgrade_process()
+{
+    checksum=`cat $FIRMWARE_FILE_MD5SUM | cut -c 1-32`
+    root_checksum=`md5sum $FIRMWARE_FILE | cut -c 1-32`
+
+    # Flash image in secondary partition if checksum matches
+    if [ "$checksum" == "$root_checksum" ]; then
+        start_blink_led
+        set_env_var "proceed_upgrade" "1"
+        set_env_var "bootpart" "$boot_offset"
+        drop_cache
+        do_upgrade $1
+        uploaded_version=`grep -o -E '_V.{0,3}' $VERSION_FILE | cut -c 3-5 | sed 's/\.//'`
+        handle_downgrade $uploaded_version
+        if [ $? -ne 0 ]; then
+            echo "Failed to do soft reset on downgrade (exit code $?)"
+        fi
+        raise_alarm $FIRMWARE_VERSION
+        update_env $@
+    else
+        clear_upgrade_dir $1
+        echo "CRC check failed!!!"
+        echo "Image Upgrade Failed!!!"
+        exit 5
+    fi
+}
+
+# Do sanity checks on firmware file before proceed upgrade
+prepare_start()
+{
+    if [ "$3" == "check" ]; then
+        check_extract_fw_file $@
+    elif [ "$3" == "cancel" ]; then
+        clear_upgrade_dir $1
+        echo "User canceled firmware downgrade"
+        exit 11
+    fi
+    fw_ver=`grep -o -E '_V.{0,3}' $VERSION_FILE | cut -c 3-5 | sed 's/\.//'`
+    if [ -e $META_FILE ] && [ -z `grep -o $PRODUCT_ID $META_FILE` ]; then
+        clear_upgrade_dir $1
+        echo "Incompatible Firmware"
+        exit 4
+    elif [ $PRODUCT_ID == "WAC505" ] && [ "$fw_ver" -lt "15" ]; then
+        clear_upgrade_dir $1
+        echo "Incompatible Firmware"
+        exit 4
+    fi
+    # This check is not needed because we are doing soft reset on downgrade now. If it requires, we can enable it in future.
+        #/usr/local/bin/fw_config_check `cut -dV -f 2 $VERSION_FILE` || exit 7
+}
+
+
+# main function 
+start_main()
+{
+    # Don't allow firmware upgrade without reboot,If upgrade already Inprogress
+    if [ $proceed_upgrade -eq 0 ]; then
+        prepare_start $@
+        IMG_VER=`ls $FIRMWARE_FILE | cut -c 17-19 | head -1`
+        check_magic_number $IMG_VER $1
+        fw_upgrade_process $@
+        clear_upgrade_dir $1
+    elif [ $proceed_upgrade -eq 1 ]; then
+        echo "Image Upgrade In progress !!!"
+        echo "Please Wait or Reboot AP for Upgrade !!!"
+        exit 6
+    else
+        echo "Env corruption found..!!!"
+        exit 4
+    fi
+}
+
+# Starts Here...........
+start_main $@
+# Ends Here.............
